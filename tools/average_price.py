@@ -23,16 +23,16 @@ def average_price():
     count = 1
     total_value = 0
     while command != "stop":
-        command = input(f"Input price # {count + 1}:")
+        command = input(f"Input price # {count + 1}: ")
         try:
             command = float(command)
             total_value += command
             count += 1
         except ValueError:
-            if command == "stop":
+            if command.lower() in ["stop", "quit"]:
                 break
             else:
-                print("Invalid input. Please enter a number or 'stop' to stop.")
+                print("Invalid input. Please enter a number or 'stop' to stop. ")
                 continue
 
     average = round(total_value / count, 2)
